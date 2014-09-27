@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2195922035">
+    <data-source source="LOCAL" name="Rails sellbro: development" uuid="4486d860-e768-4348-bc11-8d99f19653dc">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/sellbro</jdbc-url>
+      <user-name>Meme</user-name>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

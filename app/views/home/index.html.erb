@@ -1,0 +1,17 @@
+<% if signed_in? %>
+
+hola
+
+<% else %>
+
+    <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px">
+          </p>
+          <br/>
+          <div class="col-md-12">
+            <div class="col-md-1 col-md-offset-4"  style=" margin-right: -25px; margin-top: 3px"> <i class="fa fa-3x fa-facebook"></i> </div>
+            <div class="col-md-1">   <%= link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %></div>
+          </div>
+    </div>
+
+
+<% end %>

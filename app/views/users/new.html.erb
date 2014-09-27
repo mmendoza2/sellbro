@@ -1,0 +1,61 @@
+<% if signed_in? %>
+
+
+  <%= puts(request.env['omniauth.auth'])   %>
+  <%=    %>
+  <%= @user.name %>
+
+    <p> YA ESTAS LOGUEADO</p>
+    <p> AHORA</p>
+    <p> ¡COMIENZA A CONOCER MÉXICO!</p>
+
+<% else %>
+
+
+
+<div class="container">
+    <div class="contenedorpagprincipal">
+        <div class="login-form-wrap-center">
+          <h1 class="sign-up-header">Resgitrate en No Te Limites</h1>
+          <div class="wrapper-form">
+
+
+
+            <section class="wrapper-facebook">
+              <div id="user-widget">
+                <% if current_user %>
+                    Welcome <strong><%= current_user.name %></strong>!
+                    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+                <% else %>
+                    <%= link_to "Registrate con Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-large btn-primary" %>
+                <% end %>
+              </div>
+
+             </section>
+
+
+
+
+
+          </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="footerpagprincipal">
+  <div class="container">
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
+  </div>
+</div>
+
+
+
+<% end %>
+
+
+
+
+
+
