@@ -1,4 +1,35 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+
+
+
+<div class="col-md-12 col-sm-12 col-xs-12" style="background-color: #e6e6e5" >
+
+  <div class="row" style="background-color: #ffffff; padding: 40px; margin-right: -10px;">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="subtitulos"> <%=	 @product.name %> </h2>
+        <div class="col-md-6">
+          <div class="row" style="margin-top: 40px">
+            <p> <%=	 @product.description.html_safe %> </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row" style="margin-top: 40px">
+
+            <iframe width="450" height="215" src="//www.youtube.com/embed/<%=@product.video%>" frameborder="0" allowfullscreen></iframe>
+            <p></p>
+          </div>
+          <div class="row" style="margin-top: 40px">
+            <p> <%=	image_tag @product.photo.url(:big) %> </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <hr class="linea">
+
+
+
+
+  </div>
+</div>
