@@ -1,27 +1,25 @@
 
+<div class="col-md-12 col-sm-12 col-xs-12" style="background-color: #e6e6e5" >
 
-<h1>Listing products</h1>
+  <div class="row" style="background-color: #ffffff; padding: 40px; margin-right: -10px;">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="subtitulos"> All products</h2>
+        <div class="col-md-6">
+          <ul class="nav"  style="font-size: 16px; color: #808080">
+            <% @products.each do |x| %>
+                <li> <%=	 link_to x.name, x %>  </li>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+            <%	 end %>
+          </ul>
+        </div>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+    <hr class="linea">
 
-<br>
 
-<%= link_to 'New Product', new_product_path %>
+
+
+  </div>
+</div>
