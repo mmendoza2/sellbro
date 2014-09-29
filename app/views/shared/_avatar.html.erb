@@ -1,0 +1,9 @@
+<% if current_user.photo_file_name.blank?  %>
+    <% if current_user.avatar.blank?  %>
+        <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico"), current_user %>
+    <%	 else %>
+        <%= link_to image_tag("http://graph.facebook.com/#{current_user.uid}/picture?type=square", class: "avatarchico"), current_user %>
+    <% end %>
+<% else %>
+    <%= link_to image_tag(current_user.photo.url(:square), class: "avatarchico"), current_user  %>
+<%	 end %>

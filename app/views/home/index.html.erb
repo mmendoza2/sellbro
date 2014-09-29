@@ -1,14 +1,24 @@
 <% if signed_in? %>
 
-hola
+
+
+
+
 
 <% else %>
 
     <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px">
-          </p>
-          <br/>
-          <div class="col-md-12">
-            <div class="col-md-1 col-md-offset-4"  style=" margin-right: -25px; margin-top: 3px"> <i class="fa fa-3x fa-facebook"></i> </div>
+      <br/><br/><br/>
+          <div class="col-md-4 col-md-offset-2">
+            <div class="img-responsive">
+            <%=	 image_tag "https://s3-us-west-2.amazonaws.com/images.sellbro/dots.jpg", style: "width: 400px" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h1>SellBro</h1>
+            <h2>A Social Marketplace</h2>
+            <br/>
+            <div class="col-md-1"  style=" margin-right: -25px; margin-top: 3px"> <i class="fa fa-3x fa-facebook"></i> </div>
             <div class="col-md-1">   <%= link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %></div>
           </div>
     </div>

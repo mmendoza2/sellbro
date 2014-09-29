@@ -122,13 +122,6 @@ GEM
       childprocess (>= 0.2.3)
       guard (>= 1.1)
       spork (>= 0.8.4)
-    haml (4.0.5)
-      tilt
-    haml-rails (0.5.1)
-      actionpack (~> 4.0.0)
-      activesupport (~> 4.0.0)
-      haml (>= 3.1, < 5.0)
-      railties (~> 4.0.0)
     hashie (2.1.2)
     hike (1.2.3)
     hitimes (1.2.2)
@@ -300,7 +293,6 @@ DEPENDENCIES
   growl (= 1.0.3)
   guard-rspec (= 2.5.0)
   guard-spork (= 1.5.0)
-  haml-rails
   jbuilder (= 1.2.0)
   jquery-rails (= 3.1.0)
   jquery-ui-rails (= 4.1.1)

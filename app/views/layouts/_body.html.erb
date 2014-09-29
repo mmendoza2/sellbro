@@ -1,0 +1,10 @@
+<body>
+
+<% if signed_in? 	  %>
+    <%= render 'layouts/topbar' %>
+    <%= yield %>
+<%  else %>
+    <%= yield %>
+<% end %>
+
+</body>

@@ -1,3 +1,43 @@
 
-                  <%= link_to "Log out",  destroy_user_session_path, method: "delete" %>
-
+<!-- top navbar -->
+<div class="navbar navbar-fixed-top" role="navigation" style="padding-top: 0px; background-color: #f5f5f5">
+  <div>
+    <div class="col-md-12">
+        <div class="col-md-2">
+          <h1 style="margin-top: 10px"> <%=	 link_to "SellBro", root_path %> </h1>
+        </div>
+        <div class="col-md-3 col-md-offset-7">
+          <nav class="hidden-xs">
+            <ul class="nav " style="margin-right: 5%; padding-top: 10px">
+              <ul class="pull-right">
+                <li id="fat-menu" class="dropdown">
+                  <% if current_user.photo_file_name.blank?  %>
+                      <% if current_user.avatar.blank?  %>
+                          <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchiquito"), current_user %>
+                      <%	 else %>
+                          <%= link_to image_tag("http://graph.facebook.com/#{current_user.uid}/picture?type=square", class: "avatarchiquito"), current_user %>
+                      <% end %>
+                  <% else %>
+                      <%= link_to image_tag(current_user.photo.url(:square), class: "avatarchiquito"), current_user  %>
+                  <%	 end %>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <%= current_user.name.first(20) %>
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Profile", current_user %></li>
+                    <li><%= link_to "Friends", users_path %></li>
+                    <li><%= link_to "Configuration", edit_user_registration_path(current_user) %></li>
+                    <li class="divider"></li>
+                    <li>
+                      <%= link_to "Log out",  destroy_user_session_path, method: "delete" %>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </ul>
+          </nav>
+        </div>
+    </div>
+  </div>
+</div>
