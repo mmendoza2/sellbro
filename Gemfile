@@ -26,7 +26,6 @@ gem 'pg', '0.17.1'
 gem 'bootstrap-sass', '3.0.3'
 
 
-
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
 # The following optional lines are part of the advanced setup.
