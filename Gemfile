@@ -24,6 +24,7 @@ gem 'jquery-ui-rails', '4.1.1'
 gem 'koala', '1.9.0'
 gem 'pg', '0.17.1'
 gem 'bootstrap-sass', '3.0.3'
+gem 'rmagick', '2.13.3'
 
 
 group :development, :test do
