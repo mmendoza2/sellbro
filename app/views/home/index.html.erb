@@ -1,9 +1,20 @@
 <% if signed_in? %>
 
 
+<div class="col-md-12">
+  <div class="col-md-6 col-md-offset-3">
+    <ul>
+    <li><%=	 link_to "Products", products_path %></li>
+    <li>    <%=	 link_to "Categories", categories_path %>
+    </li>
+    <li>    <%=	 link_to "Subcategories", subcategories_path %>
+    </li>
+    </ul>
 
 
-<%=	 link_to "Products", products_path %>
+  </div>
+</div>
+
 
 <% else %>
 

@@ -1,8 +1,6 @@
 
-<%= form_for(@product, :html => { :multipart => true }) do |f| %>
+<%= form_for(@subcategory, :html => { :multipart => true }) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-
-    <%= f.collection_select(:subcategory_id,  @subcategories, :id, :name)  %>
 
     <div class="row">
       <%= f.text_field :name, :placeholder => "Name" %>
@@ -10,11 +8,10 @@
     <div class="row">
       <%= f.text_area :description, :placeholder => "Description"  %>
     </div>
-      <%= f.label :image %>
-      <%= f.file_field :photo %>
+    <%= f.label :image %>
+    <%= f.file_field :photo %>
     <br/>
 
-    <%=	 f.hidden_field :user_id, value: @current_user %>
 
     <div class="form-actions">
       <%= f.button :submit %>

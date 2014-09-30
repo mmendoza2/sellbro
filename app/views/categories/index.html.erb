@@ -1,0 +1,35 @@
+<div class="col-md-12">
+  <div class="col-md-6 col-md-offset-3">
+
+
+    <div class="row" style="background-color: #ffffff; padding: 40px; margin-right: -10px;">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="subtitulos"> All subcategories</h2>
+          <div class="col-md-6">
+          <ul class="nav"  style="font-size: 16px; color: #808080">
+            <% @categories.each do |x| %>
+                <li> <%=	 link_to x.name, x %>  </li>
+
+            <%	 end %>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <hr class="linea">
+
+
+      <%= link_to 'New Category', new_category_path %>
+
+
+  </div>
+</div>
+
+
+
+
+</div>
+</div>
+
+<br>

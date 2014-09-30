@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929023606) do
+ActiveRecord::Schema.define(version: 20140930005829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.text     "description"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+
+  end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug", using: :btree
+
 
   create_table "images", force: true do |t|
     t.string   "slug"
@@ -24,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140929023606) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "user_id"
+    t.integer  "product_id"
   end
 
   add_index "images", ["slug"], name: "index_images_on_slug", using: :btree
@@ -41,9 +60,29 @@ ActiveRecord::Schema.define(version: 20140929023606) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "video"
+    t.integer  "user_id"
+    t.integer  "subcategory_id"
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug", using: :btree
+
+  create_table "subcategories", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.text     "description"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "category_id"
+  end
+
+  add_index "subcategories", ["slug"], name: "index_subcategories_on_slug", using: :btree
+
 
   create_table "users", force: true do |t|
     t.string   "name"
