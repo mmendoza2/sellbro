@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140930005829) do
     t.text     "description"
     t.integer  "price"
     t.string   "slug"
+    t.string   "weblink"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"
