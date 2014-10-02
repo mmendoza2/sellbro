@@ -2,30 +2,19 @@
 
 
 
-<div class="col-md-12 col-sm-12 col-xs-12" style="background-color: #e6e6e5" >
+<div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3" >
 
   <div class="row" style="background-color: #ffffff; padding: 40px; margin-right: -10px;">
-    <div class="row">
       <div class="col-md-12">
         <h2 class="subtitulos"> <%=	 @product.name %> </h2>
         <div class="col-md-6">
-          <div class="row" style="margin-top: 40px">
+          <div class="row" >
             <p> <%=	 @product.description.html_safe %> </p>
           </div>
         </div>
-        <div class="col-md-6">
-
-          <div class="row" style="margin-top: 40px">
+          <div class="row" >
             <p> <%=	image_tag @product.photo.url(:medium) %> </p>
           </div>
-        </div>
-
       </div>
-    </div>
-    <hr class="linea">
-
-
-
-
   </div>
 </div>

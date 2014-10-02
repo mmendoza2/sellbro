@@ -1,22 +1,44 @@
 
-<%= form_for(@product, :html => { :multipart => true }) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
+<div class="form-horizontal" role="form">
 
-    <%= f.collection_select(:subcategory_id,  @subcategories, :id, :name)  %>
+    <%= form_for(@product, :html => { :multipart => true }) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
 
-    <div class="row">
-      <%= f.text_field :name, :placeholder => "Name" %>
+    <div class="form-group">
+
+        <%= f.collection_select(:subcategory_id,  @subcategories, :id, :name)  %>
+
+
     </div>
-    <div class="row">
-      <%= f.text_area :description, :placeholder => "Description"  %>
-    </div>
-      <%= f.label :image %>
-      <%= f.file_field :photo %>
-    <br/>
 
-    <%=	 f.hidden_field :user_id, value: @current_user %>
+    <div class="form-group">
 
-    <div class="form-actions">
-      <%= f.button :submit %>
+
+        <%= f.text_field :name, :placeholder => "Name" %>
+
+
     </div>
-<% end %>
+    <div class="form-group">
+
+         <%= f.text_area :description, :placeholder => "Description"  %>
+
+
+    </div>
+    <div class="form-group">
+
+    <%= f.label :image %>
+    <%= f.file_field :photo %>
+
+    </div>
+
+
+         <%=	 f.hidden_field :user_id, value: @current_user %>
+
+    <div class="form-group">
+
+    <%= f.button :submit %>
+
+    </div>
+    <% end %>
+
+</div>
