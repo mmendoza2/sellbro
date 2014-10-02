@@ -1,33 +1,57 @@
 
-<%	friends = ActiveSupport::JSON.decode(open("https://graph.facebook.com/#{current_user.uid}/friends?fields=picture.width(60).height(60),name&access_token=#{current_user.oauth_token}").read) %>
 
-<div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="border: 1px solid #d3d6db; margin-bottom: 15px; " >
+<div class="container">
+  <div class="col-md-12 col-sm-12">
+    <div class="col-md-3">
+        <div class="row">
+          <ul>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>Google +</li>
+            <li>Gmail</li>
+            <hr/>
+            <form class="navbar-form navbar-right " role="search">
+              <div class="form-group">
+                <input type="text" class="form-control input-sm" placeholder="Search">
+              </div>
+              <button type="submit" class="btn-sm ">Submit</button>
+            </form>
+          </ul>
+        </div>
+    </div>
+    <div class="col-md-9">
 
-  <div class="row" >
-    <h1 style="margin-left: 20px">Friends</h1>
-  </div>
-</div>
-
-<div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style="border: 1px solid #d3d6db; " >
-
-  <% friends['data'].each do |x|  %>
-      <div class="row" >
-        <% if  x.nil? %>
-
-            <h4>You have no friends, you are a loser.</h4>
-
-        <% else  %>
-            <div class="col-xs-4 col-md-2    col-sm-4">
-              <%= link_to image_tag(x['picture']['data']['url'], class: "avatarmedio" ), x %>
-            </div>
-            <div class="col-xs-8 col-md-10    col-sm-8 ">
-              <%=	link_to x['name'], x %>
-            </div>
-
+      <%	friends = ActiveSupport::JSON.decode(open("https://graph.facebook.com/#{current_user.uid}/friends?fields=picture.width(60).height(60),name&access_token=#{current_user.oauth_token}").read) %>
+      <div class="col-md-12" >
+        <% friends['data'].each do |x|  %>
+              <% if  x.nil? %>
+                  <h4>You have no friends, you are a loser.</h4>
+              <% else  %>
+                  <div class="col-xs-6 col-md-4">
+                    <div class="thumbnail">
+                      <div class="row">
+                        <div class="col-md-3">
+                        <%= link_to image_tag(x['picture']['data']['url'], class: "avatarchiquitito" ), x %>
+                        </div>
+                        <div class="col-md-9">
+                          <p>
+                              <%=	link_to x['name'], x %>
+                          </p>
+                          <p>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+            <hr/>
         <% end %>
-
       </div>
-      <hr/>
-  <% end %>
+    </div>
+  </div>
+
+
+
+
 </div>
 

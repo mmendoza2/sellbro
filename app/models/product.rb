@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 
+  has_many :images, as :imageable
   belongs_to :user
   belongs_to :subcategory
 

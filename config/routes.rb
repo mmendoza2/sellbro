@@ -1,9 +1,7 @@
 Sellbro::Application.routes.draw do
 
   resources :subcategories
-
   resources :categories
-
   resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -15,7 +13,7 @@ Sellbro::Application.routes.draw do
    root :to => "home#index"
    devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
    match '/users/auth/facebook' => 'devise/omniauth_callbacks#passthru',  via: 'get'
-   match 'auth/:provider/callback', to: 'sessions#create',   via: 'get'
+   match 'auth/:provider/callback', to: 'home#index',   via: 'get'
    match 'auth/failure', to: redirect('/'),                  via: 'get'
    match '/users/sign_out',    to: 'devise/sessions#destroy',    via: 'post'
    match '/index',    to: 'home#index',    via: 'get'
