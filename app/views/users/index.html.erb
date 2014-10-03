@@ -61,7 +61,7 @@
                       </div>
                       <hr/>
                       <% userx = User.where(uid: x['id']).take %>
-                      <% if userx.products.first().photo_file_name.blank?	  %>
+                      <% if userx.products.blank?	  %>
                           <%= image_tag("https://s3.amazonaws.com/sellbro/products/thumbnail-default.jpg")	  %>
                       <% else %>
                           <%= image_tag(userx.products.first().photo.url(:medium))    %>
