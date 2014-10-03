@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
+
   has_attached_file :photo, :styles => { :large => "200x200>", :normal => "100x100>", :square =>"50x50>" },
                     :url  => ":s3_domain_url",
                     :path => "/:class/:attachment/:id_partition/:style/:filename"
@@ -66,14 +67,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def facebook
-    @facebook ||= Koala::Facebook::API.new(oauth_token)
-    block_given? ? yield(@facebook) : @facebook
-  rescue Koala::Facebook::APIError => e
-    logger.info e.to_s
-    nil # or consider a custom null object
-  end
-
   extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -86,8 +79,6 @@ class User < ActiveRecord::Base
   def feed
     Micropost.from_users_followed_by(self)
   end
-
-
 
 
   def following?(other_user)

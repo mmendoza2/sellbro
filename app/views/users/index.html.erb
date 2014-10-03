@@ -4,11 +4,31 @@
   <div class="col-md-12 col-sm-12">
     <div class="col-md-3">
         <div class="row">
-          <ul>
-            <li>Facebook</li>
-            <li>Twitter</li>
-            <li>Google +</li>
-            <li>Gmail</li>
+          <table>
+            <tbody>
+            <tr>
+              <td><i class="fa fa-1x fa-facebook"></i></td>
+              <td style="padding-left: 15px">Facebook</td>
+            <tr>
+              <td><i class="fa fa-1x fa-twitter"></i> </td>
+              <td style="padding-left: 15px">Twitter</td>
+            </tr>
+            <tr>
+              <td><i class="fa fa-1x fa-google-plus"></i> </td>
+              <td style="padding-left: 15px">Google +</td>
+            </tr>
+              <td><i class="fa fa-1x fa-gmail"></i> </td>
+              <td style="padding-left: 15px">Gmail</td>
+            </tr>
+            <tr>
+
+
+
+
+            </tr>
+            </tbody>
+          </table>
+          <ul class="list-unstyled">
             <hr/>
             <form class="navbar-form navbar-right " role="search">
               <div class="form-group">
@@ -27,24 +47,35 @@
               <% if  x.nil? %>
                   <h4>You have no friends, you are a loser.</h4>
               <% else  %>
-                  <div class="col-xs-6 col-md-4">
-                    <div class="thumbnail">
-                      <div class="row">
-                        <div class="col-md-3">
-                        <%= link_to image_tag(x['picture']['data']['url'], class: "avatarchiquitito" ), x %>
+                  <li class="list-inline col-xs-6 col-md-4">
+                    <div class="thumbnail" >
+                      <div class="row" style="padding: 5px 0px 0px 0px !important;">
+                        <div class="col-md-4" >
+                        <%= link_to image_tag(x['picture']['data']['url']), x %>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-8">
                           <p>
-                              <%=	link_to x['name'], x %>
-                          </p>
-                          <p>
+                               <%=	link_to x['name'], x %>
                           </p>
                         </div>
                       </div>
+                      <hr/>
+                      <% userx = User.where(uid: x['id']).take %>
+                      <% if userx.products.first().photo_file_name.blank?	  %>
+                          <%= image_tag("https://s3.amazonaws.com/sellbro/products/thumbnail-default.jpg")	  %>
+                      <% else %>
+                          <%= image_tag(userx.products.first().photo.url(:medium))    %>
+                      <% end %>
+                      <hr/>
+                      <div class="row">
+
+                        <%=	 render 'follow_form', :@user => userx   %>
+
+
+                      </div>
                     </div>
-                  </div>
+                  </li>
               <% end %>
-            <hr/>
         <% end %>
       </div>
     </div>

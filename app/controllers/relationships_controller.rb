@@ -6,7 +6,7 @@ class RelationshipsController < ApplicationController
     current_user.follow!(@user)
     respond_to do |format|
       format.html { redirect_to(:back) }
-      format.js
+      format.js {@user}
     end
 
   end
@@ -16,7 +16,7 @@ class RelationshipsController < ApplicationController
     current_user.unfollow!(@user)
     respond_to do |format|
       format.html { redirect_to(:back) }
-      format.js
+      format.js {@user}
     end
 
   end
