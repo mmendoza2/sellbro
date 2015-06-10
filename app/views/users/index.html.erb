@@ -1,33 +1,15 @@
-
-
 <div class="container">
   <div class="col-md-12 col-sm-12">
     <div class="col-md-3">
         <div class="row">
-          <table>
-            <tbody>
-            <tr>
-              <td><i class="fa fa-1x fa-facebook"></i></td>
-              <td style="padding-left: 15px">Facebook</td>
-            <tr>
-              <td><i class="fa fa-1x fa-twitter"></i> </td>
-              <td style="padding-left: 15px">Twitter</td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-1x fa-google-plus"></i> </td>
-              <td style="padding-left: 15px">Google +</td>
-            </tr>
-              <td><i class="fa fa-1x fa-gmail"></i> </td>
-              <td style="padding-left: 15px">Gmail</td>
-            </tr>
-            <tr>
 
+          <ul class="nav nav-tabs nav-stacked" >
+            <li class="active" ><a href="#facebook"  data-toggle="tab"> <i class="fa fa-1x fa-facebook"></i>  - Facebook</a></li>
+            <li ><a href="#twitter"  data-toggle="tab"><i class="fa fa-1x fa-twitter"></i> - Twitter</a></li>
+            <li><a href="#google"  data-toggle="tab"><i class="fa fa-1x fa-google-plus"></i> - Google +</a></li>
+            <li><a href="#gmail"  data-toggle="tab"><i class="fa fa-1x fa-gmail"></i> - Gmail</a></li>
+          </ul>
 
-
-
-            </tr>
-            </tbody>
-          </table>
           <ul class="list-unstyled">
             <hr/>
             <form class="navbar-form navbar-right " role="search">
@@ -39,49 +21,59 @@
           </ul>
         </div>
     </div>
-    <div class="col-md-9">
 
-      <%	friends = ActiveSupport::JSON.decode(open("https://graph.facebook.com/#{current_user.uid}/friends?fields=picture.width(60).height(60),name&access_token=#{current_user.oauth_token}").read) %>
-      <div class="col-md-12" >
-        <% friends['data'].each do |x|  %>
-            <% userx = User.where(uid: x['id']).take %>
-              <% if  x.nil? %>
-                  <h4>You have no friends, you are a loser.</h4>
-              <% else  %>
-                  <li class="list-inline col-xs-6 col-md-4">
-                    <div class="thumbnail" >
-                      <div class="row" style="padding: 5px 0px 0px 0px !important;">
-                        <div class="col-md-4" >
-                        <%= link_to image_tag(x['picture']['data']['url']), userx %>
-                        </div>
-                        <div class="col-md-8">
-                          <p>
-                               <%=	link_to x['name'], userx %>
-                          </p>
-                        </div>
-                      </div>
-                      <hr/>
-
-
-                      <%   unless userx.blank?	            %>
-                          <% if userx.products.blank?	  %>
-                              <%= image_tag("https://s3.amazonaws.com/sellbro/products/thumbnail-default.jpg")	  %>
-                          <% else %>
-                              <%= link_to image_tag(userx.products.first().photo.url(:medium)), userx.products.first()   %>
-                          <% end %>
-
-                          <hr/>
-                          <div class="row">
-                            <%=	 render 'follow_form', :@user => userx   %>
+    <div class="tab-content">
+      <div class="tab-pane active" id="facebook">
+        <div class="col-md-9">
+          <%	friends = ActiveSupport::JSON.decode(open("https://graph.facebook.com/#{current_user.uid}/friends?fields=picture.width(60).height(60),name&access_token=#{current_user.oauth_token}").read) %>
+          <div class="col-md-12" >
+            <% friends['data'].each do |x|  %>
+                <% userx = User.where(uid: x['id']).take %>
+                <% if  x.nil? %>
+                    <h4>You have no friends, you are a loser.</h4>
+                <% else  %>
+                    <li class="list-inline col-xs-6 col-md-4">
+                      <div class="thumbnail" >
+                        <div class="row" style="padding: 5px 0px 0px 0px !important;">
+                          <div class="col-md-4" >
+                            <%= link_to image_tag(x['picture']['data']['url']), userx %>
                           </div>
-                      <% end %>
-                    </div>
-                  </li>
-              <% end %>
-        <% end %>
+                          <div class="col-md-8">
+                            <p>
+                              <%=	link_to x['name'], userx %>
+                            </p>
+                          </div>
+                        </div>
+                        <hr/>
+
+
+                        <%   unless userx.blank?	            %>
+                            <% if userx.products.blank?	  %>
+                                <%= image_tag("https://s3.amazonaws.com/sellbro/products/thumbnail-default.jpg")	  %>
+                            <% else %>
+                                <%= link_to image_tag(userx.products.first().photo.url(:medium)), userx.products.first()   %>
+                            <% end %>
+
+                            <hr/>
+                            <div class="row">
+                              <%=	 render 'follow_form', :@user => userx   %>
+                            </div>
+                        <% end %>
+                      </div>
+                    </li>
+                <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
+
+
+      <div class="tab-pane " id="twitter">Twitter</div>
+      <div class="tab-pane" id="google">...</div>
+      <div class="tab-pane" id="gmail">...</div>
     </div>
   </div>
+
 
 
 

@@ -1,0 +1,82 @@
+
+<!-- top navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "SellBro", products_path, class: "navbar-brand", style: "font-weight: bold; font-size: 30px" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navba">
+
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><%= link_to "Stores products", root_path %></li>
+            <li><%= link_to "Your products", products_path %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Stores</a></li>
+            <li class="divider"></li>
+
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#" data-toggle="modal" data-target="#myModal">
+            Sign in!
+          </a>
+        </li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel" >Sign in with Facebook</h4>
+      </div>
+      <div class="modal-body">
+        <section>
+          <div class="header-description">
+            <div class="text-center  " style="margin-top: 30px">
+              <p> ¡Find anything you want to want!</p>
+              <p></p>
+              <i class="icon-facebook-sign"></i>  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %>
+            </div><!-- /header-description -->
+          </div>
+        </section>
+
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>

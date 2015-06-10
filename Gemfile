@@ -26,6 +26,7 @@ gem 'pg', '0.17.1'
 gem 'bootstrap-sass', '3.0.3'
 gem 'rmagick', '2.13.3'
 gem 'jquery-fileupload-rails'
+gem 'angularjs-rails'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'

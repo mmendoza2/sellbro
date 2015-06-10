@@ -1,17 +1,19 @@
-<h2>Sign in</h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<div class="container">
+  <div class="col-md-6 " style="margin-top: 20px">
+    <div class="row border" style="margin-bottom: 10px">
+      <div class="img-responsive" style="text-align: center;">
+      </div>
+      <h5 style="margin-left: 30px; color: #3c598c"></h5>
+      <h5 style="margin-left: 30px; color: #3c598c"></h5>
+    </div>
+  </div>
+  <div class="col-md-5 col-md-offset-1" style="margin-top: 150px; ">
+    <div class="row col-md-4" style=" height: 300px; text-align: center; padding-top: 100px; position: fixed">
+      <p>Sign in with Facebook so you can sell productos also!</p>
+      <i class="icon-facebook-sign"></i>  <%= link_to "Sign in", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+    </div>
+  </div>
+</div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>

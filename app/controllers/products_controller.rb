@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /products
   # GET /products.json
@@ -30,6 +31,7 @@ class ProductsController < ApplicationController
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @product.errors, status: :unprocessable_entity }

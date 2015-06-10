@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html>
-
-<%= render 'layouts/head' %>
-
+<head>
+  <%=	 render "layouts/header" %>
+</head>
 <body>
 
-<% if signed_in? 	  %>
-    <%= render 'layouts/topbar' %>
-    <div style="margin-top: 70px">
-    <%= yield %>
-    </div>
-<%  else %>
-    <%= yield %>
-<% end %>
+<%=	 render "layouts/bodyapp" %>
+
 
 </body>
-
 
 </html>

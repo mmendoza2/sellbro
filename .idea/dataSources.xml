@@ -5,9 +5,7 @@
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1:5432/sellbro</jdbc-url>
-      <user-name>Meme</user-name>
       <libraries />
     </data-source>
   </component>
 </project>
-

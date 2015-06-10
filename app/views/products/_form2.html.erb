@@ -1,6 +1,5 @@
-<%= form_for(@product, :html => { :multipart => true }, remote: true) do |f| %>
+<%= form_for(Product.new, :html => { :multipart => true }, remote: true) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-
     <div class="form-group">
       <div class="col-sm-6">
         <%= f.collection_select(:subcategory_id,  @subcategories, :id, :name, {:include_blank => false}, {:class => 'form-control input-sm'})   %>
@@ -17,12 +16,6 @@
     <div class="form-group">
       <%= f.text_area :description, :placeholder => "Description", class: 'form-control'  %>
     </div>
-    <div class="form-group">
-      <%= f.label :image %>
-      <%= f.file_field :photo %>
-    </div>
-    <%=	 f.hidden_field :user_id, value: @current_user %>
-    <hr/>
     <div class="form-group">
       <div class="col-sm-10">
         <%= f.button :submit, class: 'btn btn-success form-control' %>
